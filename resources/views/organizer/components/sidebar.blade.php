@@ -16,7 +16,7 @@
                                 </ul>
                             </li>
                             <li>
-                                <a href="" i class="ti-pie-chart"></i><span> Create an Event</span></a>
+                                <a href="{{route('organizer.createevent')}}" i class="ti-pie-chart"></i><span> Create an Event</span></a>
                             </li>
                             <!-- Add more menu items as needed -->
                         </ul>

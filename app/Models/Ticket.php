@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Ticket extends Model
 {
+    protected $fillable =[
+        'ticket quantity',
+        'ticket price',
+        'event_id'
+       ];
     use HasFactory;
 }

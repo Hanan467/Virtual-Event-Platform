@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -21,10 +22,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth','organizer'])->prefix('organizer')->name('organizer.')->group(function(){
     Route::get('dashboard', [HomeController::class, 'organizer'])->name('dashboard');
-    // Route::get('myitems/listed',[ItemController::class, 'approved'])->name('myitems.listed');
-    // Route::get('myitems/pending',[ItemController::class, 'pending'])->name('myitems.pending');
-    // Route::get('additems',[ItemController::class, 'create'])->name('additems');
-    // Route::post('additems',[ItemController::class, 'store'])->name('additem');
+    Route::post('createevent',[EventsController::class, 'store'])->name('createevents');
+    Route::get('createevent',[EventsController::class, 'create'])->name('createevent');
 
 });
 require __DIR__.'/auth.php';

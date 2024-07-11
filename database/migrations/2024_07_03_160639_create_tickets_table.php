@@ -15,9 +15,8 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('event_id')->references('id')->on('events');
-            $table->string('ticket type');
             $table->integer('ticket quantity');
-            $table->float('ticket available');
+            $table->float('ticket price');
         });
     }
 

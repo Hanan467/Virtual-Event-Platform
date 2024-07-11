@@ -19,7 +19,9 @@ return new class extends Migration
             $table->string('description');
             $table->timestamp('start time');
             $table->timestamp('end time');
-            $table->integer('capacity');
+            $table->string('image_path');
+            $table->string('video_stream_url');
+
         });
     }
 

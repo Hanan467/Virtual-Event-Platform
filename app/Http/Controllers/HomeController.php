@@ -8,6 +8,8 @@ class HomeController extends Controller
 {
     public function organizer(){
                                  
-        return view('organizer.dashboard',);
+        return view('organizer.dashboard');
     }
+
+
 }

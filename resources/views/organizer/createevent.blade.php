@@ -1,7 +1,7 @@
-@extends('seller.layout.app')
+@extends('organizer.layouts.app')
 
 @section('page-title', 'Dashboard')
-@section('breadcrumb', 'My Items')
+@section('breadcrumb', 'Create Evento')
 
 @section('content')
 
@@ -22,15 +22,15 @@
             </button>
         </div>
     @endif
-                <div class="col-7 mt-5 mx-5 ms-5">
+                <div class="col-7 mt-5 mx-5 ms-5 center">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Add item</h4>
-                                        <form class="form-horizontal" id="myForm" action="{{ route('seller.additem') }}" method="POST" enctype="multipart/form-data">
+                                        <h4 class="header-title">Create event</h4>
+                                        <form class="form-horizontal" id="myForm" action="{{ route('organizer.createevents') }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                             <div class="form-group row mx-5">
                                                 <div class="col-sm-12">
-                                                    <label class="col-form-label" for="name">Name</label>
+                                                    <label class="col-form-label" for="name">Title</label>
                                                     <input type="text" class="form-control" id="name" name="name">
                                                 </div>
                                             </div>
@@ -42,38 +42,42 @@
                                             </div>
                                             <div class="form-group row mx-5">
                                                 <div class="col-sm-6">
-                                                <label class="col-form-label">Category</label>
-                                             <select class="custom-select" onchange="categoryChanged(event)">
-                                                <option selected="selected">Select</option>
-                                                @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                            @endforeach
-                                            </select>               
+                                                <label class="col-form-label" for="start_time">Start time</label>
+                                                <input type="datetime" class="form-control" id="start_time" name="start_time">
+
                                         </div>
                                         <div class="col-sm-6">
-                                                <label class="col-form-label">Condition</label>
-                                             <select class="custom-select" onchange="conditionChanged(event)">
-                                                <option selected="selected">Select</option>
-                                                <option value="new">New</option>
-                                                <option value="used">Used</option>
-                                            </select>               
+                                                <label class="col-form-label" for="end_time">End time</label>
+                                                <input type="datetime" class="form-control" id="end_time" name="end_time">             
                                         </div>
                                             </div>
                                             <div class="form-group row mx-5">
                                                 <div class="col-sm-6">
-                                                    <label for="bidprice"> Bid price</label>
-                                                    <input type="number" class="form-control" id="bidprice" name="bidprice">
+                                                    <label for="videostsream">Video stream Url</label>
+                                                    <input type="url" class="form-control" id="videostsream" name="videostsream">
                                                 </div>
                                                 <div class="col-sm-6">
                                                 <div class="custom-file">
                                                   
-                                                    <label for="image">Item Image</label>
+                                                    <label for="image">Banner Image</label>
                                                     <input class="form-control" type="file" id="image" name="image">
                                                 </div>
                                                 </div>
                                             </div>
-                                            <input type="hidden" name="selectedcategoryId" id="selectedcategoryId">
-                                            <input type="hidden" name="selectedcondition" id="selectedcondition">
+
+                                            <div class="form-group row mx-5">
+                                                <div class="col-sm-6">
+                                                    <label for="price">Ticket price</label>
+                                                    <input type="number" class="form-control" id="price" name="price">
+                                                </div>
+                                                <div class="col-sm-6">
+                                                <div class="custom-file">
+                                                  
+                                                    <label for="amount">Ticket amount</label>
+                                                    <input class="form-control" type="number" id="amount" name="amount">
+                                                </div>
+                                                </div>
+                                            </div>
 
                                             <div class="card-footer">
                                             <button type="submit" class="btn btn-primary float-right">Save</button>
